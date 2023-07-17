@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb751f6e7d940754d87a62adf7609db9, type: 3}
+  m_Name: Blaster
+  m_EditorClassIdentifier: 
+  Info:
+    Image: {fileID: 0}
+    Name: "\u0411\u043B\u0430\u0441\u0442\u0435\u0440"
+    Discription: 
+    Cost: 100
+  Specifications:
+    WeaponID: 
+    WeaponType: 0
+    WeaponObject: {fileID: 0}
+    BulletPrefab: {fileID: 8494278486023762984, guid: b466a1b7056e3da408581aec5b49987d, type: 3}
+    ShootRare: 0.05
+    BulletSpeed: 15
+    BulletLifeTime: 5
+    ScatterAmount: 1
+    ShootDetectionLayers:
+      serializedVersion: 2
+      m_Bits: 129
