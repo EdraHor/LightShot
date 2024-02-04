@@ -11,19 +11,17 @@ public class Player : MonoBehaviour
     public float MovementSpeed = 1f;
     private IWeaponBehavior currentWeaponBehaviour;
     private Dictionary<WeaponType, IWeaponBehavior> WeaponBehaviors;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private Vector2 _angleToMouse;
     public WeaponSO CurrentWeapon { get; private set; }
     
     public Vector3 FireInput 
     { 
         get
         {
-#if UNITY_STANDALONE
             var mousePositionOn2D = _camera.ScreenToWorldPoint(Input.mousePosition);
             var _angleToMouse = (mousePositionOn2D - transform.position).normalized;
             return _angleToMouse;
-#elif UNITY_ANDROID
-            return shotInput.Value;
-#endif
         }
     }
 
@@ -88,12 +86,7 @@ public class Player : MonoBehaviour
     private void Rotate()
     {
         float rotation;
-#if UNITY_STANDALONE
         rotation = Mathf.Atan2(_angleToMouse.y, _angleToMouse.x) * Mathf.Rad2Deg;
-#elif UNITY_ANDROID
-        rotation = Vector2.SignedAngle(Vector2.left, shotInput.Value);
-#endif
-
         transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
         Debug.DrawRay(transform.position, FireInput * 5, Color.yellow);
     }
